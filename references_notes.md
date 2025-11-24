@@ -4,7 +4,7 @@
     # change name of file as required
 2) Required data from python code:
     <details>
-        <summary><b> ✅AI Understanding Template-ch02-end-to-end-ml </b></summary>
+        <summary><b> ✅AI Understanding Template-ch0_XXX_01</b></summary>
                     
     </details>
 
