@@ -850,3 +850,341 @@ Just tell me which one.
 
 
 </details>
+
+<details>
+<summary><b> ✅AI Understanding Template-Questions </b></summary>
+  Here you go — **short, crisp theoretical + coding questions** across **Pandas, NumPy, Matplotlib, Scikit-Learn** strictly based on **Chapter-01 code you shared**.
+
+---
+
+# ✅ **THEORETICAL QUESTIONS (Module-wise)**
+
+## **1. Pandas – Theory**
+
+1. What is the purpose of using `pandas.read_csv()` in the chapter-01 code?
+2. What is the difference between `DataFrame.values` and `DataFrame.iloc`?
+3. How does `DataFrame.plot(kind='scatter')` work internally?
+4. Explain the purpose of merging datasets using `pd.merge()`.
+5. Why do we preprocess GDP and Life Satisfaction datasets before merging?
+6. What does `set_index()` do and why is it used?
+7. What does the `.loc[]` accessor return?
+8. Why does the code reassign column names like:
+   `gdp_per_capita.columns = ["Country", "GDP per capita (USD)"]`?
+9. What is the difference between filtering using conditions vs `.query()`?
+
+---
+
+## **2. NumPy – Theory**
+
+1. Why do we use `np.random.seed(42)`?
+2. What is `np.linspace()` used for in plotting regression lines?
+3. What does `np.c_[]` do when preparing training data?
+4. Why do we reshape arrays for Scikit-Learn using `.values` (2-D)?
+5. Explain broadcasting used in `t0 + t1 * X`.
+
+---
+
+## **3. Matplotlib – Theory**
+
+1. What does `plt.axis([x1, x2, y1, y2])` do?
+2. Why configure fonts using `plt.rc()`?
+3. What is the purpose of annotations (`plt.annotate`) in the scatterplot?
+4. Difference between `"r"` vs `"ro"` markers?
+5. Why call `plt.tight_layout()` before saving the figure?
+
+---
+
+## **4. Scikit-Learn – Theory**
+
+1. What happens inside `LinearRegression().fit(X, y)`?
+2. Difference between Linear Regression and K-Nearest Neighbors Regression?
+3. What does `coef_` and `intercept_` represent?
+4. How does KNN Regression compute predictions?
+5. What is overfitting? How did the chapter demonstrate it?
+6. Why use `Pipeline` with PolynomialFeatures + StandardScaler + LinearRegression?
+
+---
+
+---
+
+# ✅ **CODING QUESTIONS (Module-wise)**
+
+---
+
+## **1. Pandas – Coding**
+
+1. Load the `lifesat.csv` file and display only top 5 countries with highest GDP per capita.
+2. Filter the dataset to show countries where life satisfaction is below 6.0.
+3. Add a new column:
+   `Income_Group = "High" if GDP > 50,000 else "Low"`.
+4. Plot GDP vs Life Satisfaction using Pandas but with a different color and size.
+5. Write code to merge **oecd_bli** and **gdp_per_capita** using inner join manually (no `pd.merge`).
+
+---
+
+## **2. NumPy – Coding**
+
+1. Generate 100 numbers between 0 and 100 using `np.linspace`.
+2. Reshape a 1-D array into 2-D column vector (n,1).
+3. Create synthetic life satisfaction data using
+   `y = 2.5 + 0.0001 * GDP + noise`.
+4. Demonstrate NumPy broadcasting using a custom example.
+
+---
+
+## **3. Matplotlib – Coding**
+
+1. Plot a custom line `y = 3 + 0.00008 * X` over the scatter dataset.
+2. Add annotations for 5 countries of your choice.
+3. Save the figure as `"chapter01_test_plot.png"`.
+4. Plot a polynomial curve of degree 5 using a random dataset.
+5. Modify `plt.axis` to zoom into GDP between 40k and 50k only.
+
+---
+
+## **4. Scikit-Learn – Coding**
+
+1. Train a **Linear Regression** model and print `coef_` and `intercept_`.
+2. Replace Linear Regression with KNN (k=5) and compare predictions.
+3. Build a polynomial regression model with degree=4 using Pipeline.
+4. Write code to detect overfitting by evaluating train vs test error.
+5. Fit a model on *full data* and compare slope difference with *sample data*.
+
+---
+
+---
+
+# ✅ **BONUS – EXAM-STYLE SHORT QUESTIONS**
+
+1. Why is scaling important when using KNN?
+2. What is the interpretation of the slope in the GDP vs Life Satisfaction regression?
+3. How does limiting GDP between 23k and 62k prevent misleading training?
+4. Why does polynomial regression overfit quickly?
+5. How does changing seed value affect the generated plots?
+
+---
+
+If you want, I can also generate:
+
+✅ MCQs
+✅ Scenario-based questions
+✅ Assignment-style long coding exercises
+✅ Solutions for all questions
+Just tell me **which format you want next**.
+
+</details>
+
+<details>
+<summary><b> ✅AI Understanding Template-Answer for QnA </b></summary>
+			Here are **short, crisp answers** to every question I gave earlier (theoretical + coding) based on your Chapter-01 code (Pandas, Matplotlib, Sklearn).
+
+---
+
+# ✅ **PANDAS — Answers**
+
+### **1. What does `lifesat.plot(kind='scatter', ...)` do?**
+
+Creates a scatter plot using the DataFrame’s built-in plotting wrapper over Matplotlib.
+
+---
+
+### **2. What is the output of `lifesat[["GDP per capita (USD)"]].values`?**
+
+A 2D NumPy array (shape: n×1) containing only the GDP column.
+
+---
+
+### **3. Why do we use `.set_index("Country")`?**
+
+To make *Country* the row index, enabling quick lookup: `df.loc["France"]`.
+
+---
+
+### **4. What does `.pivot(index="Country", columns="Indicator", values="Value")` do?**
+
+Converts long-format data into wide format where each indicator becomes a column.
+
+---
+
+### **5. What will `country_stats[(df[col] >= a) & (df[col] <= b)]` return?**
+
+A filtered DataFrame between two conditions using boolean masking.
+
+---
+
+# ✅ **Coding Answers (Pandas)**
+
+### **6. Get only life satisfaction > 7**
+
+```python
+lifesat[lifesat["Life satisfaction"] > 7]
+```
+
+### **7. Find correlation between GDP & Life Satisfaction**
+
+```python
+lifesat.corr()
+```
+
+---
+
+---
+
+# 🎨 **MATPLOTLIB — Answers**
+
+### **8. What does `plt.axis([23500, 62500, 4, 9])` do?**
+
+Sets x-limits and y-limits manually.
+
+---
+
+### **9. What does this mean?**
+
+```python
+plt.rc('font', size=12)
+```
+
+Sets the global default font size.
+
+---
+
+### **10. Why do we use `plt.annotate()`?**
+
+To display country names with arrows pointing to specific points.
+
+---
+
+# Matplotlib Coding
+
+### **11. Add a line on scatter plot**
+
+```python
+plt.plot(X, t0 + t1 * X, "r")
+```
+
+---
+
+---
+
+# 🤖 **SKLEARN — Theoretical Answers**
+
+### **12. What is `LinearRegression().fit(X, y)` doing?**
+
+Learns the best-fit line by minimizing MSE using the Normal Equation.
+
+---
+
+### **13. What is the shape of `model.predict(X_new)`?**
+
+A 2D array → `[[prediction_value]]`.
+
+---
+
+### **14. Difference: Linear Regression vs KNeighborsRegressor**
+
+| Linear Regression     | KNN Regression                 |
+| --------------------- | ------------------------------ |
+| Fits a line           | Finds nearest neighbors        |
+| Global model          | Local model                    |
+| Fast inference        | Slower inference               |
+| Sensitive to outliers | Robust for non-linear patterns |
+
+---
+
+### **15. Why do we do polynomial + scaling + linear regression?**
+
+To create a **nonlinear** model using linear regression on **expanded polynomial features**.
+
+---
+
+# Sklearn Coding Answers
+
+### **16. Code: Fit 3-NN model**
+
+```python
+from sklearn.neighbors import KNeighborsRegressor
+model = KNeighborsRegressor(n_neighbors=3)
+model.fit(X, y)
+```
+
+---
+
+### **17. Code: Get model coefficients**
+
+```python
+t0, t1 = model.intercept_[0], model.coef_[0][0]
+```
+
+(Works only for linear regression.)
+
+---
+
+### **18. Code: Pipeline for polynomial regression**
+
+```python
+pipeline_reg.predict([[40000]])
+```
+
+---
+
+---
+
+# 📌 **BONUS — Mixed Module Questions Answers**
+
+### **19. Why is `np.random.seed(42)` used?**
+
+For reproducible results across runs.
+
+---
+
+### **20. Why convert DataFrame column to `.values`?**
+
+Sklearn expects NumPy arrays, not Pandas Series.
+
+---
+
+### **21. Why filter GDP using `23_500` format?**
+
+`_` improves readability; Python ignores underscores in numbers.
+
+---
+
+### **22. What is overfitting in your polynomial example?**
+
+High-degree polynomial learns noise → low training error but poor generalization.
+
+---
+
+### **23. Why use `StandardScaler` before polynomial regression?**
+
+Polynomial features become large → scaling stabilizes optimization.
+
+---
+
+### **24. What does this do?**
+
+```python
+X = np.linspace(min_gdp, max_gdp, 1000)
+```
+
+Generates 1000 evenly spaced values for smooth curve plotting.
+
+---
+
+### **25. Why use `.loc["Cyprus"]`?**
+
+`.loc` accesses rows by label (string index).
+
+---
+
+If you want, I can also prepare:
+
+✅ **MCQs (with answers)**
+✅ **Scenario-based interview questions**
+✅ **Coding exercises**
+✅ **Mini-projects for each module**
+
+Just say **“create MCQs”** or **“give coding exercises.”**
+
+
+</details>
