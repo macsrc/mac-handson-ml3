@@ -34,7 +34,7 @@ assert version.parse(sklearn.__version__) >= version.parse("1.0.1")
 
 import matplotlib.pyplot as plt
 
-
+####################### Section-01 - Get the Data Starts
 # # Get the Data
 
 # *Welcome to Machine Learning Housing Corp.! Your task is to predict median house values in Californian districts, given a number of features from these districts.*
@@ -330,8 +330,7 @@ housing["people_per_house"] = housing["population"] / housing["households"]
 corr_matrix = housing.corr(numeric_only=True)
 corr_matrix["median_house_value"].sort_values(ascending=False)
 
-
-# # Prepare the Data for Machine Learning Algorithms
+# # Prepare the Data for Machine Learning Algorithms - Section- 02 starts
 
 # Let's revert to the original training set and separate the target (note that `strat_train_set.drop()` creates a copy of `strat_train_set` without the column, it doesn't actually modify `strat_train_set` itself, unless you pass `inplace=True`):
 
@@ -897,7 +896,7 @@ housing_prepared.shape
 preprocessing.get_feature_names_out()
 
 
-# # Select and Train a Model
+# # Select and Train a Model - Section-3 Starts
 
 # ## Training and Evaluating on the Training Set
 
@@ -988,7 +987,7 @@ forest_rmse
 
 # The training error is much lower than the validation error, which usually means that the model has overfit the training set. Another possible explanation may be that there's a mismatch between the training data and the validation data, but it's not the case here, since both came from the same dataset that we shuffled and split in two parts.
 
-# # Fine-Tune Your Model ############ 
+# # Fine-Tune Your Model - Section-4 Starts  ############ 
 
 # ## Grid Search
 
@@ -1258,7 +1257,7 @@ predictions
 # You could use pickle instead, but joblib is more efficient.
 #############================= End of Code #########################
 
-# # Exercise solutions
+# # Exercise solutions - Section-5 Starts ############################
 
 # ## 1.
 
