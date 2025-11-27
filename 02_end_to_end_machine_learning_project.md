@@ -2,7 +2,7 @@
 
 # Section-01 - Get Data
 <details>
-<summary><b> ✅AI Understanding Template-ch02-1a </b></summary>
+<summary><b> ✅01_AI Understanding Template-ch02-1a </b></summary>
 
 Below is a **clean, short, high-impact explanation of AI** **in the context of the code you shared** (California Housing ML project).
 
@@ -287,7 +287,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> #✅AI Understanding Template-ch02-explanation-cheatsheet </b></summary>
+<summary><b> #✅02_AI Understanding Template-ch02-explanation-cheatsheet </b></summary>
  Section - 1b  
 Below is a **short, clean, exam-ready explanation** of your code + **definitions of all key terms** + a **cheat-sheet** for quick revision.
 
@@ -603,7 +603,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-1 page MCQ with answer </b></summary>
+<summary><b> ✅03_AI Understanding Template-ch02-1 page MCQ with answer </b></summary>
     Here is a **1-page MCQ set with answers**, focused on **Chapter 01 – Programs & Objective Questions** (Data/ML workflow, Python basics, EDA, splitting, visualization).
 
 All answers provided at the end.
@@ -834,7 +834,7 @@ Just tell me!
 </summary>
 
 <details>
-<summary><b># ✅AI Understanding Template-ch02-Scenario-Based Interview Questions </b></summary>
+<summary><b># ✅04_AI Understanding Template-ch02-Scenario-Based Interview Questions </b></summary>
     Here are **scenario-based interview questions** (short and crisp) based on **Chapter 01 – Programs, Data Handling, EDA, Feature Engineering, Splitting, Correlation, etc.**
 
 ---
@@ -994,7 +994,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-xxxx01 </b></summary>
+<summary><b> ✅05_AI Understanding Template-ch02-xxxx01 </b></summary>
 Here are **short, direct answers** for all the *Scenario-Based Interview Questions* from Chapter 01 – Programs.
 
 ---
@@ -1156,7 +1156,7 @@ Just tell me!
 <!-- ##################### Section-2 Starts ########################### -->
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-xxxx02 </b></summary>
+<summary><b> ✅06_AI Understanding Template-ch02-xxxx02 </b></summary>
 		Here is a **short, crisp, interview-style explanation** for **AI (LLMs) w.r.t. the code you shared**, following **exactly your requested structure**.
 
 ---
@@ -1338,7 +1338,7 @@ Just say: **"MCQ"**, **"cheat sheet"**, or **"interview answers"**.
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-cheatsheet </b></summary>
+<summary><b> ✅07_AI Understanding Template-ch02-cheatsheet </b></summary>
 		Sure — here is a **short, crisp, clear explanation** of the **code**, followed by a **Cheat Sheet** containing **key terms + definitions** exactly as you asked.
 
 ---
@@ -1602,7 +1602,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-MCQ_Answer </b></summary>
+<summary><b> ✅08_AI Understanding Template-ch02-MCQ_Answer </b></summary>
 		Here is a **1-page MCQ set with answers** for **Chapter-01: Programs (Basics of Python Programming)** — short and crisp.
 
 ---
@@ -1773,7 +1773,7 @@ If you want, I can also generate:
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-ScenarioBased-QnA </b></summary>
+<summary><b> ✅09_AI Understanding Template-ch02-ScenarioBased-QnA </b></summary>
 			Here are **Scenario-Based QnA** for **Chapter-01: Programs (Basics of Python Programming)** — short and useful for interviews.
 
 ---
@@ -2169,7 +2169,7 @@ Just say:
 <!-- ##################### Section-3 Starts ########################### -->
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-xxxx </b></summary>
+<summary><b> ✅10_AI Understanding Template-ch02-xxxx </b></summary>
 		Below is a **compact, interview-ready explanation** of the AI concepts *based on your code*.
 Everything is written **short**, as per your preference.
 
@@ -2464,7 +2464,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-Explain the code && cheatsheet </b></summary>
+<summary><b> ✅11_AI Understanding Template-ch02-Explain the code && cheatsheet </b></summary>
     Here is a **1-page, crisp, interview-ready Cheatsheet** of all important terms from your ML pipeline code.
 
 ---
@@ -2694,7 +2694,7 @@ Just say **“diagram please”** or **“summary please”**.
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-xxxx </b></summary>
+<summary><b> ✅12_AI Understanding Template-ch02-xxxx </b></summary>
 			Here is a **clean, short, easy-to-read explanation of your full code block** — step by step.
 
 # ✅ **Code Explanation — Line by Line (Simple & Clear)**
@@ -2940,7 +2940,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-xxxx </b></summary>
+<summary><b> ✅13_AI Understanding Template-ch02-xxxx </b></summary>
 		Great — I’ll deliver the remaining pieces **short, clear, and structured**:
 
 * ✅ **Cheat Sheet (1 page)**
@@ -3197,7 +3197,7 @@ If you want:
 
 <!-- ##################### Section-4 Starts - Fine Tunning ########################### -->
 <details>
-<summary><b> ✅AI Understanding Template-ch02-Fine-tune your model </b></summary>
+<summary><b> ✅14_AI Understanding Template-ch02-Fine-tune your model </b></summary>
 		Below is a **short, crisp, interview-ready explanation** of the entire code **from an AI perspective**, covering:
 
 ✔ What is it?
@@ -3494,7 +3494,7 @@ Just tell me **“Generate next section.”**
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-Code Explanation </b></summary>
+<summary><b> ✅15_AI Understanding Template-ch02-Code Explanation </b></summary>
 			Below is a **clear, short, structured explanation** of the entire code you provided — **what it does**, **how it works**, **key terms with definitions**, and **AI-style reasoning notes**.
 
 ---
@@ -3766,7 +3766,7 @@ Just tell me **“generate cheatsheet”** or **“generate MCQs”**.
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-cheatsheet </b></summary>
+<summary><b> ✅16_AI Understanding Template-ch02-cheatsheet </b></summary>
 		Here is a **1-page, crisp, interview-friendly Cheatsheet** for your entire code block (Preprocessing → Linear/Tree/Forest Models → Grid/Random Search → CV → RMSE → Feature Importance → Model Save/Load).
 
 I kept it **short by default**, as per your preference.
@@ -3975,7 +3975,7 @@ Just say: **“Generate MCQs”** or **“Scenario questions”**.
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-1 page MCQ </b></summary>
+<summary><b> ✅17_AI Understanding Template-ch02-1 page MCQ </b></summary>
 		Here are **MCQs with answers** based on your code + ML concepts (Linear Regression, Decision Tree, Random Forest, Cross-validation, RMSE, Pipelines, Preprocessing, etc.).
 **Short, crisp answers** as you prefer.
 
@@ -4197,7 +4197,7 @@ Just tell me **“more MCQs”** or the format you want.
 </details>
 
 <details>
-<summary><b> ✅AI Understanding Template-ch02-scenario based QnA </b></summary>
+<summary><b> ✅18_AI Understanding Template-ch02-scenario based QnA </b></summary>
 			Here are **Scenario-Based Interview Questions & Answers** tailored to your code (Linear Regression, Decision Tree, Random Forest, Pipelines, RMSE, Cross-Validation, Error Analysis, Preprocessing).
 
 Short, crisp answers.
@@ -4422,5 +4422,577 @@ If you want, I can also prepare:
 ✅ **End-to-End Case Study Based Scenarios**
 
 Just say **“coding scenarios”**, **“system design scenarios”**, or **“more scenarios.”**
+
+</details>
+
+<details>
+<summary><b> ✅19_AI Understanding Template-ch02-Coding Scenario Questions + Answers </b></summary>
+		Here are **Coding Scenario Questions (with short answers)** based on the models and concepts in your code (Linear Regression, Decision Trees, Random Forests, Pipelines, RMSE, Cross-Validation, Predictions, Preprocessing).
+
+Short and interview-ready.
+
+---
+
+# ✅ **Coding Scenario Questions + Answers (ML Regression + Scikit-Learn)**
+
+---
+
+## **1️⃣ Scenario: Build a Full Pipeline + Linear Regression**
+
+**Q:** Write code to:
+
+* Impute missing values
+* Scale numeric features
+* One-hot encode categorical features
+* Fit Linear Regression
+* Predict on test data
+
+**A:**
+
+```python
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+num_features = ["age", "income"]
+cat_features = ["city"]
+
+preprocess = ColumnTransformer([
+    ("num", StandardScaler(), num_features),
+    ("cat", OneHotEncoder(handle_unknown='ignore'), cat_features)
+])
+
+model = make_pipeline(preprocess, LinearRegression())
+model.fit(train_X, train_y)
+pred = model.predict(test_X)
+```
+
+---
+
+## **2️⃣ Scenario: Compute RMSE Manually**
+
+**Q:** Write a function to compute RMSE manually.
+
+**A:**
+
+```python
+import numpy as np
+
+def rmse(y_true, y_pred):
+    return np.sqrt(np.mean((y_true - y_pred) ** 2))
+```
+
+---
+
+## **3️⃣ Scenario: DecisionTree Overfits — Add Max Depth**
+
+**Q:** Train a DecisionTree with depth limit = 5.
+
+**A:**
+
+```python
+from sklearn.tree import DecisionTreeRegressor
+
+tree = DecisionTreeRegressor(max_depth=5, random_state=42)
+tree.fit(X, y)
+```
+
+---
+
+## **4️⃣ Scenario: RandomForest with Cross-Validation**
+
+**Q:** Train a RandomForest and evaluate using 5-fold CV.
+
+**A:**
+
+```python
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestRegressor
+
+forest = RandomForestRegressor(random_state=42)
+scores = -cross_val_score(forest, X, y, cv=5,
+                           scoring="neg_root_mean_squared_error")
+scores.mean()
+```
+
+---
+
+## **5️⃣ Scenario: Round Predictions**
+
+**Q:** Predict and round values to nearest 100.
+
+**A:**
+
+```python
+pred = model.predict(X)
+pred.round(-2)
+```
+
+---
+
+## **6️⃣ Scenario: Detect Overfitting Programmatically**
+
+**Q:** Write code to compare training vs validation RMSE.
+
+**A:**
+
+```python
+train_pred = model.predict(X_train)
+val_pred = model.predict(X_val)
+
+train_rmse = rmse(y_train, train_pred)
+val_rmse = rmse(y_val, val_pred)
+
+print(train_rmse, val_rmse)
+```
+
+---
+
+## **7️⃣ Scenario: Extract Feature Importances from RandomForest**
+
+**Q:** Print top 5 most important features.
+
+**A:**
+
+```python
+forest.fit(X, y)
+imp = forest.feature_importances_
+idx = np.argsort(imp)[::-1][:5]
+for i in idx:
+    print(feature_names[i], imp[i])
+```
+
+---
+
+## **8️⃣ Scenario: Save Model + Pipeline**
+
+**Q:** Save and load full pipeline model.
+
+**A:**
+
+```python
+import joblib
+
+joblib.dump(model, "model.pkl")
+loaded = joblib.load("model.pkl")
+```
+
+---
+
+## **9️⃣ Scenario: Add Polynomial Features**
+
+**Q:** Add polynomial degree=2 features to Linear Regression.
+
+**A:**
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+
+poly_model = make_pipeline(
+    PolynomialFeatures(2),
+    LinearRegression()
+)
+poly_model.fit(X, y)
+```
+
+---
+
+## **🔟 Scenario: Hyperparameter Tuning for RandomForest**
+
+**Q:** Use GridSearchCV to tune `max_depth` and `n_estimators`.
+
+**A:**
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+params = {
+    "randomforestregressor__n_estimators": [50, 100],
+    "randomforestregressor__max_depth": [5, 10]
+}
+
+grid = GridSearchCV(forest_reg, params, cv=5,
+                    scoring="neg_root_mean_squared_error")
+
+grid.fit(X, y)
+grid.best_params_
+```
+
+---
+
+## **1️⃣1️⃣ Scenario: Handle Unknown Categories**
+
+**Q:** Modify OneHotEncoder to safely handle unexpected categories.
+
+**A:**
+
+```python
+OneHotEncoder(handle_unknown='ignore')
+```
+
+---
+
+## **1️⃣2️⃣ Scenario: Compare 3 Models Using Cross-Validation**
+
+**Q:** Evaluate LR, DT, RF.
+
+**A:**
+
+```python
+models = [lin_reg, tree_reg, forest_reg]
+
+for m in models:
+    scores = -cross_val_score(m, X, y, cv=10,
+                              scoring="neg_root_mean_squared_error")
+    print(m, scores.mean())
+```
+
+---
+
+## **1️⃣3️⃣ Scenario: Programmatically Check for Missing Values**
+
+**Q:** Print missing value counts.
+
+**A:**
+
+```python
+df.isnull().sum()
+```
+
+---
+
+## **1️⃣4️⃣ Scenario: Train/Val/Test Split**
+
+**Q:** Create a 60-20-20 split.
+
+**A:**
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_temp, X_test, y_temp, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_val, y_train, y_val = train_test_split(X_temp, y_temp, test_size=0.25)
+```
+
+---
+
+## **1️⃣5️⃣ Scenario: Detect Outliers Using Z-Score**
+
+**Q:** Remove data points with |z| > 3.
+
+**A:**
+
+```python
+from scipy.stats import zscore
+
+z = np.abs(zscore(df))
+filtered = df[(z < 3).all(axis=1)]
+```
+
+---
+
+If you want:
+
+✅ **More coding scenarios (intermediate/advanced)**
+✅ **End-to-End case study coding tasks**
+✅ **10-mark style coding questions**
+
+Just say **"more coding scenarios"** or **"advanced ones"**.
+	
+
+</details>
+
+<details>
+<summary><b> ✅20_AI Understanding Template-ch02-Advanced Coding Scenario Questions + Answers </b></summary>
+		Here are **Advanced Coding Scenario Questions + Answers** based on ML pipelines, cross-validation, model comparison, tuning, and error analysis — ideal for interviews.
+
+Short and precise (your preference).
+
+---
+
+# 🚀 **Advanced ML Coding Scenario Questions (with answers)**
+
+Focus: Pipelines · CV · Forests · Trees · Metrics · Hyperparameter Search · Feature Engineering · Model Diagnostics
+
+---
+
+# **1️⃣ Scenario: Custom Transformer Inside a Pipeline**
+
+**Q:** Create a custom transformer that adds a new feature:
+`rooms_per_person = total_rooms / population`
+Integrate it into a pipeline.
+
+**A:**
+
+```python
+from sklearn.base import BaseEstimator, TransformerMixin
+import numpy as np
+
+class RoomsPerPerson(BaseEstimator, TransformerMixin):
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        rpp = (X[:, 0] / X[:, 1]).reshape(-1, 1)   # assume col0=rooms, col1=population
+        return np.hstack([X, rpp])
+
+full_pipeline = make_pipeline(
+    RoomsPerPerson(),
+    StandardScaler(),
+    LinearRegression()
+)
+full_pipeline.fit(X, y)
+```
+
+---
+
+# **2️⃣ Scenario: Model Evaluation Function for Multiple Metrics**
+
+**Q:** Create a function that returns RMSE, MAE, R2 for any model.
+
+**A:**
+
+```python
+from sklearn.metrics import mean_absolute_error, r2_score
+
+def evaluate(model, X, y):
+    pred = model.predict(X)
+    return {
+        "rmse": np.sqrt(((y - pred) ** 2).mean()),
+        "mae": mean_absolute_error(y, pred),
+        "r2": r2_score(y, pred),
+    }
+
+evaluate(model, X_test, y_test)
+```
+
+---
+
+# **3️⃣ Scenario: Compare Linear, Tree, and Forest Models Programmatically**
+
+**Q:** Evaluate models using 10-fold CV and return a sorted ranking.
+
+**A:**
+
+```python
+models = {
+    "Linear": lin_reg,
+    "Tree": tree_reg,
+    "Forest": forest_reg
+}
+
+scores = {
+    name: -cross_val_score(m, X, y, cv=10,
+                           scoring="neg_root_mean_squared_error").mean()
+    for name, m in models.items()
+}
+
+sorted(scores.items(), key=lambda x: x[1])
+```
+
+---
+
+# **4️⃣ Scenario: Advanced Hyperparameter Tuning Using RandomizedSearchCV**
+
+Tune RandomForest with 50 iterations.
+
+**A:**
+
+```python
+from sklearn.model_selection import RandomizedSearchCV
+
+params = {
+    "randomforestregressor__n_estimators": [200, 500, 800],
+    "randomforestregressor__max_depth": [10, 20, 40, None],
+    "randomforestregressor__max_features": ["auto", "sqrt", 0.5],
+}
+
+search = RandomizedSearchCV(
+    forest_reg, params, n_iter=50, cv=5,
+    scoring="neg_root_mean_squared_error", random_state=42
+)
+
+search.fit(X, y)
+search.best_params_
+```
+
+---
+
+# **5️⃣ Scenario: Detect Data Leakage in Pipelines**
+
+**Q:** Write code to check if any preprocessing happened before train-test split.
+
+**A:**
+
+```python
+assert "scaler" not in locals(), "Scaling occurred before splitting!"
+print("No data leakage detected.")
+```
+
+---
+
+# **6️⃣ Scenario: Implement K-Fold CV Manually**
+
+**Q:** Code a manual cross-validation loop.
+
+**A:**
+
+```python
+from sklearn.model_selection import KFold
+
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+rmse_scores = []
+
+for train_idx, val_idx in kf.split(X):
+    model = forest_reg
+    model.fit(X[train_idx], y[train_idx])
+    pred = model.predict(X[val_idx])
+    rmse_scores.append(rmse(y[val_idx], pred))
+
+np.mean(rmse_scores)
+```
+
+---
+
+# **7️⃣ Scenario: Extract the Best Tree From a RandomForest**
+
+**Q:** Get the tree with the highest performance.
+
+**A:**
+
+```python
+trees = forest_reg.named_steps['randomforestregressor'].estimators_
+best_tree = trees[0]   # RandomForest already tunes via bagging; best ≈ any
+```
+
+(Interview insight: RF does not track per-tree performance.)
+
+---
+
+# **8️⃣ Scenario: Plot Learning Curves for Any Model**
+
+**Q:** Generate a learning curve.
+
+**A:**
+
+```python
+from sklearn.model_selection import learning_curve
+
+sizes, train_scores, val_scores = learning_curve(
+    forest_reg, X, y, cv=5,
+    scoring="neg_root_mean_squared_error"
+)
+```
+
+---
+
+# **9️⃣ Scenario: Diagnose Underfitting vs Overfitting**
+
+**Q:** Print training + validation RMSE for model diagnosis.
+
+**A:**
+
+```python
+train_rmse = rmse(y_train, model.predict(X_train))
+val_rmse = rmse(y_val, model.predict(X_val))
+
+print("Underfit" if train_rmse≈val_rmse else "Overfit")
+```
+
+---
+
+# **🔟 Scenario: Add Feature Selection to Pipeline**
+
+**Q:** Add SelectKBest to keep top 10 features.
+
+**A:**
+
+```python
+from sklearn.feature_selection import SelectKBest, f_regression
+
+pipe = make_pipeline(
+    preprocessing,
+    SelectKBest(f_regression, k=10),
+    LinearRegression()
+)
+pipe.fit(X, y)
+```
+
+---
+
+# **1️⃣1️⃣ Scenario: Analyze Feature Correlation Before Modeling**
+
+**Q:** Drop features with correlation > 0.95.
+
+**A:**
+
+```python
+corr = df.corr().abs()
+upper = corr.where(np.triu(np.ones(corr.shape), k=1).astype(bool))
+drop_cols = [col for col in upper.columns if any(upper[col] > 0.95)]
+df_reduced = df.drop(drop_cols, axis=1)
+```
+
+---
+
+# **1️⃣2️⃣ Scenario: Build and Evaluate an Ensemble of 3 Models**
+
+**Q:** Blend predictions using averaging.
+
+**A:**
+
+```python
+pred1 = lin_reg.predict(X)
+pred2 = tree_reg.predict(X)
+pred3 = forest_reg.predict(X)
+
+ensemble = (pred1 + pred2 + pred3) / 3
+rmse(y, ensemble)
+```
+
+---
+
+# **1️⃣3️⃣ Scenario: Create a Residual Plot Programmatically**
+
+**A:**
+
+```python
+residuals = y_test - model.predict(X_test)
+plt.scatter(model.predict(X_test), residuals)
+```
+
+---
+
+# **1️⃣4️⃣ Scenario: Use Permutation Importance**
+
+**A:**
+
+```python
+from sklearn.inspection import permutation_importance
+
+r = permutation_importance(model, X, y)
+r.importances_mean
+```
+
+---
+
+# **1️⃣5️⃣ Scenario: Export a Trained Decision Tree**
+
+**A:**
+
+```python
+from sklearn.tree import export_graphviz
+
+export_graphviz(tree_reg.named_steps['decisiontreeregressor'],
+                out_file="tree.dot",
+                feature_names=feature_names,
+                filled=True)
+```
+
+---
+
+If you want **ultra-advanced** ones (feature drift testing, production monitoring, bias testing, SHAP explainability, pipelines with custom cross-validator, or agentic AI debugging), just say **“expert-level scenarios”**.
+	
 
 </details>
