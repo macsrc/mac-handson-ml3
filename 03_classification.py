@@ -56,7 +56,7 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     plt.savefig(path, format=fig_extension, dpi=resolution)
 
 
-# # MNIST
+# # MNIST   - Section-01 ######################################################
 
 from sklearn.datasets import fetch_openml
 
@@ -115,7 +115,7 @@ plt.show()
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
 
 
-# # Training a Binary Classifier
+# # Training a Binary Classifier #################################################
 
 y_train_5 = (y_train == '5')  # True for all 5s, False for all other digits
 y_test_5 = (y_test == '5')
@@ -130,7 +130,7 @@ sgd_clf.fit(X_train, y_train_5)
 sgd_clf.predict([some_digit])
 
 
-# # Performance Measures
+# # Performance Measures - Section - 02 #################################################
 
 # ## Measuring Accuracy Using Cross-Validation
 
@@ -398,7 +398,7 @@ precision_score(y_train_5, y_train_pred_forest)
 recall_score(y_train_5, y_train_pred_forest)
 
 
-# # Multiclass Classification
+# # Multiclass Classification - Section-03 ###################################
 
 # SVMs do not scale well to large datasets, so let's only train on the first 2,000 instances, or else this section will take a very long time to run:
 
@@ -622,7 +622,7 @@ save_fig("cleaned_digit_example_plot")  # extra code – saves Figure 3–13
 plt.show()
 
 
-# # Exercise solutions
+# # Exercise solutions - Section-Exercise  #############################################
 
 # ## 1. An MNIST Classifier With Over 97% Accuracy
 

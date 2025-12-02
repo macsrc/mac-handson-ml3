@@ -63,7 +63,7 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     plt.savefig(path, format=fig_extension, dpi=resolution)
 
 
-# # From Biological to Artificial Neurons
+# # From Biological to Artificial Neurons - ###### Section-01
 # ## The Perceptron
 
 import numpy as np
@@ -235,7 +235,7 @@ accuracy = pipeline.score(X_valid, y_valid)
 accuracy
 
 
-# # Implementing MLPs with Keras
+# # Implementing MLPs with Keras   - Section-02 #########################################################
 # ## Building an Image Classifier Using the Sequential API
 # ### Using Keras to load the dataset
 
@@ -918,7 +918,7 @@ notebook.list()
 # 
 #     !taskkill /F /PID <pid>
 
-# # Fine-Tuning Neural Network Hyperparameters
+# # Fine-Tuning Neural Network Hyperparameters - Section-03 ##############################################
 
 # In this section we'll use the Fashion MNIST dataset again:
 
@@ -1022,7 +1022,7 @@ bayesian_opt_tuner.search(X_train, y_train, epochs=10,
 get_ipython().run_line_magic('tensorboard', '--logdir {root_logdir}')
 
 
-# # Exercise solutions
+# # Exercise solutions - Section-04 ########################################
 
 # ## 1. to 9.
 
