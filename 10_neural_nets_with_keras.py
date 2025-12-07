@@ -63,8 +63,8 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     plt.savefig(path, format=fig_extension, dpi=resolution)
 
 
-# # From Biological to Artificial Neurons - ###### Section-01
-# ## The Perceptron
+## From Biological to Artificial Neurons - ###### Section-01
+## The Perceptron
 
 import numpy as np
 from sklearn.datasets import load_iris
@@ -239,8 +239,9 @@ accuracy
 # ## Building an Image Classifier Using the Sequential API
 # ### Using Keras to load the dataset
 
-# Let's start by loading the fashion MNIST dataset. Keras has a number of functions to load popular datasets in `tf.keras.datasets`. The dataset is already split for you between a training set (60,000 images) and a test set (10,000 images), but it can be useful to split the training set further to have a validation set. We'll use 55,000 images for training, and 5,000 for validation.
+# Let's start by loading the fashion **MNIST dataset**. Keras has a number of functions to load popular datasets in `tf.keras.datasets`. The dataset is already split for you between a training set (60,000 images) and a test set (10,000 images), but it can be useful to split the training set further to have a validation set. We'll use 55,000 images for training, and 5,000 for validation.
 
+# Section-02a
 import tensorflow as tf
 
 fashion_mnist = tf.keras.datasets.fashion_mnist.load_data()
@@ -362,7 +363,7 @@ biases
 
 biases.shape
 
-
+##### Section-02b
 # ### Compiling the model
 
 model.compile(loss="sparse_categorical_crossentropy",
@@ -637,7 +638,7 @@ y_pred_main, y_pred_aux = model.predict((X_new_wide, X_new_deep))
 y_pred_tuple = model.predict((X_new_wide, X_new_deep))
 y_pred = dict(zip(model.output_names, y_pred_tuple))
 
-
+##### section-02c 
 # ## Using the Subclassing API to Build Dynamic Models
 
 # Class Definition
