@@ -201,8 +201,7 @@ rf_search.fit(X_train, y_train)
 searches['rf'] = rf_search
 print('Best RF params:', rf_search.best_params_)
 
-print('
-Running RandomizedSearchCV for GradientBoosting...')
+print('Running RandomizedSearchCV for GradientBoosting...')
 gbr_search = RandomizedSearchCV(models['gbr'], param_distributions=param_dist_gbr, n_iter=10, cv=3,
                                  scoring='neg_root_mean_squared_error', random_state=42, n_jobs=-1)
 gbr_search.fit(X_train, y_train)
@@ -216,8 +215,7 @@ if XGBOOST_AVAILABLE:
         'xgbregressor__learning_rate': [0.01, 0.05, 0.1],
         'xgbregressor__colsample_bytree': [0.6, 0.8, 1.0]
     }
-    print('
-Running RandomizedSearchCV for XGBoost...')
+    print('Running RandomizedSearchCV for XGBoost...')
     xgb_search = RandomizedSearchCV(models['xgb'], param_distributions=param_dist_xgb, n_iter=10, cv=3,
                                     scoring='neg_root_mean_squared_error', random_state=42, n_jobs=-1)
     xgb_search.fit(X_train, y_train)
@@ -225,8 +223,7 @@ Running RandomizedSearchCV for XGBoost...')
     print('Best XGB params:', xgb_search.best_params_)
 
 # --- Evaluate best estimators on validation via cross-val ------------------
-print('
-Evaluating best estimators (5-fold CV)')
+print('Evaluating best estimators (5-fold CV)')
 best_estimators = {}
 for key, search in searches.items():
     best = search.best_estimator_
@@ -242,8 +239,7 @@ for k, est in best_estimators.items():
 candidates.append(('ridge', models['ridge']))
 
 # --- Stacking ensemble -----------------------------------------------------
-print('
-Building stacking ensemble with top candidates...')
+print('Building stacking ensemble with top candidates...')
 final_estimators = [(name, est.named_steps[list(est.named_steps.keys())[-1]]) for name, est in candidates]
 # NOTE: StackingRegressor expects estimators without preprocessing; to keep preprocessing we create pipeline-wrappers
 stack = StackingRegressor(estimators=[(name, est) for name, est in best_estimators.items() if name in ['rf','gbr'] and name in best_estimators],
@@ -255,8 +251,7 @@ stack_scores = -cross_val_score(stack_pipeline, X_train, y_train, scoring='neg_r
 print(f"Stacking mean RMSE={stack_scores.mean():.2f}, std={stack_scores.std():.2f}")
 
 # --- Final training on full training set and test evaluation ----------------
-print('
-Training final model (stack pipeline) on full training set...')
+print('Training final model (stack pipeline) on full training set...')
 stack_pipeline.fit(X_train, y_train)
 final_predictions = stack_pipeline.predict(X_test)
 final_test_rmse = rmse(y_test, final_predictions)
@@ -273,8 +268,7 @@ if 'rf' in searches:
     if feature_names is not None:
         importances = best_rf.feature_importances_
         fi = sorted(zip(importances, feature_names), reverse=True)[:15]
-        print('
-Top feature importances (RF):')
+        print('Top feature importances (RF):')
         for imp, name in fi:
             print(f"{name}: {imp:.3f}")
 

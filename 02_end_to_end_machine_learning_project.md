@@ -287,7 +287,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> #✅02_AI Understanding Template-ch02-explanation-cheatsheet </b></summary>
+<summary><b> ✅02_AI Understanding Template-ch02-explanation-cheatsheet </b></summary>
  Section - 1b  
 Below is a **short, clean, exam-ready explanation** of your code + **definitions of all key terms** + a **cheat-sheet** for quick revision.
 
@@ -795,9 +795,6 @@ C. Feature engineering
 D. PCA
 
 ---
-
----
-
 # 🎯 **Answers (Quick Reference)**
 
 1–B
@@ -832,9 +829,10 @@ If you want, I can also prepare:
 Just tell me!
 
 </summary>
+</details>
 
 <details>
-<summary><b># ✅04_AI Understanding Template-ch02-Scenario-Based Interview Questions </b></summary>
+<summary><b>✅04_AI Understanding Template-ch02-Scenario-Based Interview Questions </b></summary>
     Here are **scenario-based interview questions** (short and crisp) based on **Chapter 01 – Programs, Data Handling, EDA, Feature Engineering, Splitting, Correlation, etc.**
 
 ---
@@ -994,7 +992,7 @@ Just tell me!
 </details>
 
 <details>
-<summary><b> ✅05_AI Understanding Template-ch02-xxxx01 </b></summary>
+<summary><b>✅05_AI Understanding Template-ch02-xxxx01 </b></summary>
 Here are **short, direct answers** for all the *Scenario-Based Interview Questions* from Chapter 01 – Programs.
 
 ---
