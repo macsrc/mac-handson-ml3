@@ -4,7 +4,8 @@
     # change name of file as required
 2) Required data from python code:
     <details>
-        <summary><b> ✅AI Understanding Template-ch0_XXX_01</b></summary>
+        <summary><b> ✅AI Understanding Template-ch0_XXX_01</b>
+        </summary>
                     
     </details>
 
@@ -22,6 +23,37 @@
     • cheatsheet
     • 1 page MCQ with answer
     • Scenario-Based Interview Questions 
+
+    <details>
+        <summary><b> ✅AI Understanding Template-ch0_01_Please provide answer for AI w.r.t. code explanation:</b>
+        </summary>
+                    
+    </details>
+
+    <details>
+        <summary><b> ✅AI Understanding Template-ch15_01_Explain the code, get key terms and provide their full definition as well</b>
+        </summary>
+                    
+    </details>
+
+    <details>
+        <summary><b> ✅AI Understanding Template-ch0_01_cheatsheet</b>
+        </summary>
+                    
+    </details>
+
+    <details>
+        <summary><b> ✅AI Understanding Template-ch0_01_1 page MCQ with answer</b>
+        </summary>
+                    
+    </details>
+
+    <details>
+        <summary><b> ✅AI Understanding Template-ch0_01_Scenario-Based Interview Questions</b>
+        </summary>
+                    
+    </details>
+
 
 3) Python
     Here’s the **short, clear answer** you prefer 👇
