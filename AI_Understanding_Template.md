@@ -31,25 +31,25 @@
     </details>
 
     <details>
-        <summary><b> ✅AI Understanding Template-ch15_01_Explain the code, get key terms and provide their full definition as well</b>
+        <summary><b> ✅AI Understanding Template-ch0_02_Explain the code, get key terms and provide their full definition as well</b>
         </summary>
                     
     </details>
 
     <details>
-        <summary><b> ✅AI Understanding Template-ch0_01_cheatsheet</b>
+        <summary><b> ✅AI Understanding Template-ch0_03_cheatsheet</b>
         </summary>
                     
     </details>
 
     <details>
-        <summary><b> ✅AI Understanding Template-ch0_01_1 page MCQ with answer</b>
+        <summary><b> ✅AI Understanding Template-ch0_04_1 page MCQ with answer</b>
         </summary>
                     
     </details>
 
     <details>
-        <summary><b> ✅AI Understanding Template-ch0_01_Scenario-Based Interview Questions</b>
+        <summary><b> ✅AI Understanding Template-ch0_05_Scenario-Based Interview Questions</b>
         </summary>
                     
     </details>
