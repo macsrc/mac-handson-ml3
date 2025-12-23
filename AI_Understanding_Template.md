@@ -32,7 +32,8 @@
             • When should I use it? 
             • What is the mental model? 
             • How do I prompt it? 
-            • What are alternatives? </b>
+            • What are alternatives? 
+        </b>
         </summary>
                     
     </details>
