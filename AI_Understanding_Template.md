@@ -25,7 +25,14 @@
     • Scenario-Based Interview Questions 
 
     <details>
-        <summary><b> ✅AI Understanding Template-ch0_01_Please provide answer for AI w.r.t. code explanation:</b>
+        <summary><b> ✅AI Understanding Template-ch0_01_Please provide answer for AI w.r.t. code explanation:                                   
+            • What is it? 
+            • How does it reason? 
+            • Where does it fail? 
+            • When should I use it? 
+            • What is the mental model? 
+            • How do I prompt it? 
+            • What are alternatives? </b>
         </summary>
                     
     </details>
