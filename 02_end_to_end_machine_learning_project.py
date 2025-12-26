@@ -46,6 +46,7 @@ import pandas as pd
 import tarfile
 import urllib.request
 
+
 def load_housing_data():
     tarball_path = Path("datasets/housing.tgz")
     if not tarball_path.is_file():
@@ -53,8 +54,9 @@ def load_housing_data():
         url = "https://github.com/ageron/data/raw/main/housing.tgz"
         urllib.request.urlretrieve(url, tarball_path)
     with tarfile.open(tarball_path) as housing_tarball:
-            housing_tarball.extractall(path="datasets")
+        housing_tarball.extractall(path="datasets")
     return pd.read_csv(Path("datasets/housing/housing.csv"))
+
 
 housing = load_housing_data()
 
@@ -80,6 +82,7 @@ housing.describe()
 IMAGES_PATH = Path() / "images" / "end_to_end_project"
 IMAGES_PATH.mkdir(parents=True, exist_ok=True)
 
+
 def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     path = IMAGES_PATH / f"{fig_id}.{fig_extension}"
     if tight_layout:
@@ -90,11 +93,11 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
 import matplotlib.pyplot as plt
 
 # extra code – the next 5 lines define the default font sizes
-plt.rc('font', size=14)
-plt.rc('axes', labelsize=14, titlesize=14)
-plt.rc('legend', fontsize=14)
-plt.rc('xtick', labelsize=10)
-plt.rc('ytick', labelsize=10)
+plt.rc("font", size=14)
+plt.rc("axes", labelsize=14, titlesize=14)
+plt.rc("legend", fontsize=14)
+plt.rc("xtick", labelsize=10)
+plt.rc("ytick", labelsize=10)
 
 housing.hist(bins=50, figsize=(12, 8))
 save_fig("attribute_histogram_plots")  # extra code
@@ -104,6 +107,7 @@ plt.show()
 # ## Create a Test Set
 
 import numpy as np
+
 
 def shuffle_and_split_data(data, test_ratio):
     shuffled_indices = np.random.permutation(len(data))
@@ -131,8 +135,10 @@ np.random.seed(42)
 
 from zlib import crc32
 
+
 def is_id_in_test_set(identifier, test_ratio):
     return crc32(np.int64(identifier)) < test_ratio * 2**32
+
 
 def split_data_with_id_hash(data, test_ratio, id_column):
     ids = data[id_column]
@@ -179,9 +185,11 @@ samples = (np.random.rand(100_000, sample_size) < ratio_female).sum(axis=1)
 ((samples < 485) | (samples > 535)).mean()
 
 
-housing["income_cat"] = pd.cut(housing["median_income"],
-                               bins=[0., 1.5, 3.0, 4.5, 6., np.inf],
-                               labels=[1, 2, 3, 4, 5])
+housing["income_cat"] = pd.cut(
+    housing["median_income"],
+    bins=[0.0, 1.5, 3.0, 4.5, 6.0, np.inf],
+    labels=[1, 2, 3, 4, 5],
+)
 
 
 housing["income_cat"].value_counts().sort_index().plot.bar(rot=0, grid=True)
@@ -207,7 +215,8 @@ strat_train_set, strat_test_set = strat_splits[0]
 # It's much shorter to get a single stratified split:
 
 strat_train_set, strat_test_set = train_test_split(
-    housing, test_size=0.2, stratify=housing["income_cat"], random_state=42)
+    housing, test_size=0.2, stratify=housing["income_cat"], random_state=42
+)
 
 
 strat_test_set["income_cat"].value_counts() / len(strat_test_set)
@@ -215,21 +224,27 @@ strat_test_set["income_cat"].value_counts() / len(strat_test_set)
 
 # extra code – computes the data for Figure 2–10
 
+
 def income_cat_proportions(data):
     return data["income_cat"].value_counts() / len(data)
 
+
 train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
 
-compare_props = pd.DataFrame({
-    "Overall %": income_cat_proportions(housing),
-    "Stratified %": income_cat_proportions(strat_test_set),
-    "Random %": income_cat_proportions(test_set),
-}).sort_index()
+compare_props = pd.DataFrame(
+    {
+        "Overall %": income_cat_proportions(housing),
+        "Stratified %": income_cat_proportions(strat_test_set),
+        "Random %": income_cat_proportions(test_set),
+    }
+).sort_index()
 compare_props.index.name = "Income Category"
-compare_props["Strat. Error %"] = (compare_props["Stratified %"] /
-                                   compare_props["Overall %"] - 1)
-compare_props["Rand. Error %"] = (compare_props["Random %"] /
-                                  compare_props["Overall %"] - 1)
+compare_props["Strat. Error %"] = (
+    compare_props["Stratified %"] / compare_props["Overall %"] - 1
+)
+compare_props["Rand. Error %"] = (
+    compare_props["Random %"] / compare_props["Overall %"] - 1
+)
 (compare_props * 100).round(2)
 
 
@@ -254,10 +269,20 @@ save_fig("better_visualization_plot")  # extra code
 plt.show()
 
 
-housing.plot(kind="scatter", x="longitude", y="latitude", grid=True,
-             s=housing["population"] / 100, label="population",
-             c="median_house_value", cmap="jet", colorbar=True,
-             legend=True, sharex=False, figsize=(10, 7))
+housing.plot(
+    kind="scatter",
+    x="longitude",
+    y="latitude",
+    grid=True,
+    s=housing["population"] / 100,
+    label="population",
+    c="median_house_value",
+    cmap="jet",
+    colorbar=True,
+    legend=True,
+    sharex=False,
+    figsize=(10, 7),
+)
 save_fig("housing_prices_scatterplot")  # extra code
 plt.show()
 
@@ -276,15 +301,27 @@ if not (IMAGES_PATH / filename).is_file():
     print("Downloading", filename)
     urllib.request.urlretrieve(url, IMAGES_PATH / filename)
 
-housing_renamed = housing.rename(columns={
-    "latitude": "Latitude", "longitude": "Longitude",
-    "population": "Population",
-    "median_house_value": "Median house value (ᴜsᴅ)"})
+housing_renamed = housing.rename(
+    columns={
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "population": "Population",
+        "median_house_value": "Median house value (ᴜsᴅ)",
+    }
+)
 housing_renamed.plot(
-             kind="scatter", x="Longitude", y="Latitude",
-             s=housing_renamed["Population"] / 100, label="Population",
-             c="Median house value (ᴜsᴅ)", cmap="jet", colorbar=True,
-             legend=True, sharex=False, figsize=(10, 7))
+    kind="scatter",
+    x="Longitude",
+    y="Latitude",
+    s=housing_renamed["Population"] / 100,
+    label="Population",
+    c="Median house value (ᴜsᴅ)",
+    cmap="jet",
+    colorbar=True,
+    legend=True,
+    sharex=False,
+    figsize=(10, 7),
+)
 
 california_img = plt.imread(IMAGES_PATH / filename)
 axis = -124.55, -113.95, 32.45, 42.05
@@ -307,15 +344,20 @@ corr_matrix["median_house_value"].sort_values(ascending=False)
 
 from pandas.plotting import scatter_matrix
 
-attributes = ["median_house_value", "median_income", "total_rooms",
-              "housing_median_age"]
+attributes = [
+    "median_house_value",
+    "median_income",
+    "total_rooms",
+    "housing_median_age",
+]
 scatter_matrix(housing[attributes], figsize=(12, 8))
 save_fig("scatter_matrix_plot")  # extra code
 plt.show()
 
 
-housing.plot(kind="scatter", x="median_income", y="median_house_value",
-             alpha=0.1, grid=True)
+housing.plot(
+    kind="scatter", x="median_income", y="median_house_value", alpha=0.1, grid=True
+)
 save_fig("income_vs_house_value_scatterplot")  # extra code
 plt.show()
 
@@ -341,16 +383,16 @@ housing_labels = strat_train_set["median_house_value"].copy()
 # ## Data Cleaning
 
 # In the book 3 options are listed to handle the NaN values:
-# 
+#
 # ```python
 # housing.dropna(subset=["total_bedrooms"], inplace=True)    # option 1
-# 
+#
 # housing.drop("total_bedrooms", axis=1)       # option 2
-# 
+#
 # median = housing["total_bedrooms"].median()  # option 3
 # housing["total_bedrooms"].fillna(median, inplace=True)
 # ```
-# 
+#
 # For each option, we'll create a copy of `housing` and work on that copy to avoid breaking `housing`. We'll also show the output of each option, but filtering on the rows that originally contained a NaN value.
 
 null_rows_idx = housing.isnull().any(axis=1)
@@ -408,8 +450,7 @@ X = imputer.transform(housing_num)
 imputer.feature_names_in_
 
 
-housing_tr = pd.DataFrame(X, columns=housing_num.columns,
-                          index=housing_num.index)
+housing_tr = pd.DataFrame(X, columns=housing_num.columns, index=housing_num.index)
 
 
 housing_tr.loc[null_rows_idx].head()
@@ -418,14 +459,13 @@ housing_tr.loc[null_rows_idx].head()
 imputer.strategy
 
 
-housing_tr = pd.DataFrame(X, columns=housing_num.columns,
-                          index=housing_num.index)
+housing_tr = pd.DataFrame(X, columns=housing_num.columns, index=housing_num.index)
 
 
 housing_tr.loc[null_rows_idx].head()  # not shown in the book
 
 
-#from sklearn import set_config
+# from sklearn import set_config
 #
 # set_config(transform_output="pandas")  # scikit-learn >= 1.2
 
@@ -443,8 +483,8 @@ outlier_pred
 
 # If you wanted to drop outliers, you would run the following code:
 
-#housing = housing.iloc[outlier_pred == 1]
-#housing_labels = housing_labels.iloc[outlier_pred == 1]
+# housing = housing.iloc[outlier_pred == 1]
+# housing_labels = housing_labels.iloc[outlier_pred == 1]
 
 
 # ## Handling Text and Categorical Attributes
@@ -512,9 +552,11 @@ cat_encoder.feature_names_in_
 cat_encoder.get_feature_names_out()
 
 
-df_output = pd.DataFrame(cat_encoder.transform(df_test_unknown),
-                         columns=cat_encoder.get_feature_names_out(),
-                         index=df_test_unknown.index)
+df_output = pd.DataFrame(
+    cat_encoder.transform(df_test_unknown),
+    columns=cat_encoder.get_feature_names_out(),
+    index=df_test_unknown.index,
+)
 
 
 df_output
@@ -548,11 +590,12 @@ plt.show()
 # What if we replace each value with its percentile?
 
 # extra code – just shows that we get a uniform distribution
-percentiles = [np.percentile(housing["median_income"], p)
-               for p in range(1, 100)]
-flattened_median_income = pd.cut(housing["median_income"],
-                                 bins=[-np.inf] + percentiles + [np.inf],
-                                 labels=range(1, 100 + 1))
+percentiles = [np.percentile(housing["median_income"], p) for p in range(1, 100)]
+flattened_median_income = pd.cut(
+    housing["median_income"],
+    bins=[-np.inf] + percentiles + [np.inf],
+    labels=range(1, 100 + 1),
+)
 flattened_median_income.hist(bins=50)
 plt.xlabel("Median income percentile")
 plt.ylabel("Number of districts")
@@ -569,9 +612,9 @@ age_simil_35 = rbf_kernel(housing[["housing_median_age"]], [[35]], gamma=0.1)
 
 # extra code – this cell generates Figure 2–18
 
-ages = np.linspace(housing["housing_median_age"].min(),
-                   housing["housing_median_age"].max(),
-                   500).reshape(-1, 1)
+ages = np.linspace(
+    housing["housing_median_age"].min(), housing["housing_median_age"].max(), 500
+).reshape(-1, 1)
 gamma1 = 0.1
 gamma2 = 0.03
 rbf1 = rbf_kernel(ages, [[35]], gamma=gamma1)
@@ -587,7 +630,7 @@ ax2 = ax1.twinx()  # create a twin axis that shares the same x-axis
 color = "blue"
 ax2.plot(ages, rbf1, color=color, label="gamma = 0.10")
 ax2.plot(ages, rbf2, color=color, label="gamma = 0.03", linestyle="--")
-ax2.tick_params(axis='y', labelcolor=color)
+ax2.tick_params(axis="y", labelcolor=color)
 ax2.set_ylabel("Age similarity", color=color)
 
 plt.legend(loc="upper left")
@@ -613,8 +656,7 @@ predictions
 
 from sklearn.compose import TransformedTargetRegressor
 
-model = TransformedTargetRegressor(LinearRegression(),
-                                   transformer=StandardScaler())
+model = TransformedTargetRegressor(LinearRegression(), transformer=StandardScaler())
 model.fit(housing[["median_income"]], housing_labels)
 predictions = model.predict(some_new_data)
 
@@ -632,8 +674,7 @@ log_transformer = FunctionTransformer(np.log, inverse_func=np.exp)
 log_pop = log_transformer.transform(housing[["population"]])
 
 
-rbf_transformer = FunctionTransformer(rbf_kernel,
-                                      kw_args=dict(Y=[[35.]], gamma=0.1))
+rbf_transformer = FunctionTransformer(rbf_kernel, kw_args=dict(Y=[[35.0]], gamma=0.1))
 age_simil_35 = rbf_transformer.transform(housing[["housing_median_age"]])
 
 
@@ -641,8 +682,7 @@ age_simil_35
 
 
 sf_coords = 37.7749, -122.41
-sf_transformer = FunctionTransformer(rbf_kernel,
-                                     kw_args=dict(Y=[sf_coords], gamma=0.1))
+sf_transformer = FunctionTransformer(rbf_kernel, kw_args=dict(Y=[sf_coords], gamma=0.1))
 sf_simil = sf_transformer.transform(housing[["latitude", "longitude"]])
 
 
@@ -650,11 +690,12 @@ sf_simil
 
 
 ratio_transformer = FunctionTransformer(lambda X: X[:, [0]] / X[:, [1]])
-ratio_transformer.transform(np.array([[1., 2.], [3., 4.]]))
+ratio_transformer.transform(np.array([[1.0, 2.0], [3.0, 4.0]]))
 
 
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils.validation import check_array, check_is_fitted
+
 
 class StandardScalerClone(BaseEstimator, TransformerMixin):
     def __init__(self, with_mean=True):  # no *args or **kwargs!
@@ -678,6 +719,7 @@ class StandardScalerClone(BaseEstimator, TransformerMixin):
 
 from sklearn.cluster import KMeans
 
+
 class ClusterSimilarity(BaseEstimator, TransformerMixin):
     def __init__(self, n_clusters=10, gamma=1.0, random_state=None):
         self.n_clusters = n_clusters
@@ -685,14 +727,15 @@ class ClusterSimilarity(BaseEstimator, TransformerMixin):
         self.random_state = random_state
 
     def fit(self, X, y=None, sample_weight=None):
-        self.kmeans_ = KMeans(self.n_clusters, n_init=10,
-                              random_state=self.random_state)
+        self.kmeans_ = KMeans(
+            self.n_clusters, n_init=10, random_state=self.random_state
+        )
         self.kmeans_.fit(X, sample_weight=sample_weight)
         return self  # always return self!
 
     def transform(self, X):
         return rbf_kernel(X, self.kmeans_.cluster_centers_, gamma=self.gamma)
-    
+
     def get_feature_names_out(self, names=None):
         return [f"Cluster {i} similarity" for i in range(self.n_clusters)]
 
@@ -702,7 +745,7 @@ class ClusterSimilarity(BaseEstimator, TransformerMixin):
 # * Throughout this notebook, when `n_init` was not set when creating a `KMeans` estimator, I explicitly set it to `n_init=10` to avoid a warning about the fact that the default value for this hyperparameter will change from 10 to `"auto"` in Scikit-Learn 1.4.
 # * The book was unclear about the fact that setting `sample_weight=housing_labels` was only meant as an example, it's not actually used during training. So I remove the `sample_weight` argument below, and the next figure corresponds to the clusters actually used during training (unlike Figure 2-19 in the book). Sorry if this caused any confusion!
 
-cluster_simil = ClusterSimilarity(n_clusters=10, gamma=1., random_state=42)
+cluster_simil = ClusterSimilarity(n_clusters=10, gamma=1.0, random_state=42)
 similarities = cluster_simil.fit_transform(housing[["latitude", "longitude"]])
 
 
@@ -711,21 +754,39 @@ similarities[:3].round(2)
 
 # extra code – this cell generates Figure 2–19
 
-housing_renamed = housing.rename(columns={
-    "latitude": "Latitude", "longitude": "Longitude",
-    "population": "Population",
-    "median_house_value": "Median house value (ᴜsᴅ)"})
+housing_renamed = housing.rename(
+    columns={
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "population": "Population",
+        "median_house_value": "Median house value (ᴜsᴅ)",
+    }
+)
 housing_renamed["Max cluster similarity"] = similarities.max(axis=1)
 
-housing_renamed.plot(kind="scatter", x="Longitude", y="Latitude", grid=True,
-                     s=housing_renamed["Population"] / 100, label="Population",
-                     c="Max cluster similarity",
-                     cmap="jet", colorbar=True,
-                     legend=True, sharex=False, figsize=(10, 7))
-plt.plot(cluster_simil.kmeans_.cluster_centers_[:, 1],
-         cluster_simil.kmeans_.cluster_centers_[:, 0],
-         linestyle="", color="black", marker="X", markersize=20,
-         label="Cluster centers")
+housing_renamed.plot(
+    kind="scatter",
+    x="Longitude",
+    y="Latitude",
+    grid=True,
+    s=housing_renamed["Population"] / 100,
+    label="Population",
+    c="Max cluster similarity",
+    cmap="jet",
+    colorbar=True,
+    legend=True,
+    sharex=False,
+    figsize=(10, 7),
+)
+plt.plot(
+    cluster_simil.kmeans_.cluster_centers_[:, 1],
+    cluster_simil.kmeans_.cluster_centers_[:, 0],
+    linestyle="",
+    color="black",
+    marker="X",
+    markersize=20,
+    label="Cluster centers",
+)
 plt.legend(loc="upper right")
 save_fig("district_cluster_plot")
 plt.show()
@@ -737,10 +798,12 @@ plt.show()
 
 from sklearn.pipeline import Pipeline
 
-num_pipeline = Pipeline([
-    ("impute", SimpleImputer(strategy="median")),
-    ("standardize", StandardScaler()),
-])
+num_pipeline = Pipeline(
+    [
+        ("impute", SimpleImputer(strategy="median")),
+        ("standardize", StandardScaler()),
+    ]
+)
 
 
 from sklearn.pipeline import make_pipeline
@@ -750,7 +813,7 @@ num_pipeline = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
 
 from sklearn import set_config
 
-set_config(display='diagram')
+set_config(display="diagram")
 
 num_pipeline
 
@@ -761,7 +824,7 @@ housing_num_prepared[:2].round(2)
 
 def monkey_patch_get_signature_names_out():
     """Monkey patch some classes which did not handle get_feature_names_out()
-       correctly in Scikit-Learn 1.0.*."""
+    correctly in Scikit-Learn 1.0.*."""
     from inspect import Signature, signature, Parameter
     import pandas as pd
     from sklearn.impute import SimpleImputer
@@ -771,8 +834,8 @@ def monkey_patch_get_signature_names_out():
     default_get_feature_names_out = StandardScaler.get_feature_names_out
 
     if not hasattr(SimpleImputer, "get_feature_names_out"):
-      print("Monkey-patching SimpleImputer.get_feature_names_out()")
-      SimpleImputer.get_feature_names_out = default_get_feature_names_out
+        print("Monkey-patching SimpleImputer.get_feature_names_out()")
+        SimpleImputer.get_feature_names_out = default_get_feature_names_out
 
     if not hasattr(FunctionTransformer, "get_feature_names_out"):
         print("Monkey-patching FunctionTransformer.get_feature_names_out()")
@@ -785,8 +848,9 @@ def monkey_patch_get_signature_names_out():
             args[0].feature_names_out = feature_names_out
 
         __init__.__signature__ = Signature(
-            list(signature(orig_init).parameters.values()) + [
-                Parameter("feature_names_out", Parameter.KEYWORD_ONLY)])
+            list(signature(orig_init).parameters.values())
+            + [Parameter("feature_names_out", Parameter.KEYWORD_ONLY)]
+        )
 
         def get_feature_names_out(self, names=None):
             if callable(self.feature_names_out):
@@ -797,12 +861,15 @@ def monkey_patch_get_signature_names_out():
         FunctionTransformer.__init__ = __init__
         FunctionTransformer.get_feature_names_out = get_feature_names_out
 
+
 monkey_patch_get_signature_names_out()
 
 
 df_housing_num_prepared = pd.DataFrame(
-    housing_num_prepared, columns=num_pipeline.get_feature_names_out(),
-    index=housing_num.index)
+    housing_num_prepared,
+    columns=num_pipeline.get_feature_names_out(),
+    index=housing_num.index,
+)
 
 
 df_housing_num_prepared.head(2)  # extra code
@@ -825,18 +892,28 @@ num_pipeline.set_params(simpleimputer__strategy="median")
 
 from sklearn.compose import ColumnTransformer
 
-num_attribs = ["longitude", "latitude", "housing_median_age", "total_rooms",
-               "total_bedrooms", "population", "households", "median_income"]
+num_attribs = [
+    "longitude",
+    "latitude",
+    "housing_median_age",
+    "total_rooms",
+    "total_bedrooms",
+    "population",
+    "households",
+    "median_income",
+]
 cat_attribs = ["ocean_proximity"]
 
 cat_pipeline = make_pipeline(
-    SimpleImputer(strategy="most_frequent"),
-    OneHotEncoder(handle_unknown="ignore"))
+    SimpleImputer(strategy="most_frequent"), OneHotEncoder(handle_unknown="ignore")
+)
 
-preprocessing = ColumnTransformer([
-    ("num", num_pipeline, num_attribs),
-    ("cat", cat_pipeline, cat_attribs),
-])
+preprocessing = ColumnTransformer(
+    [
+        ("num", num_pipeline, num_attribs),
+        ("cat", cat_pipeline, cat_attribs),
+    ]
+)
 
 
 from sklearn.compose import make_column_selector, make_column_transformer
@@ -852,41 +929,55 @@ housing_prepared = preprocessing.fit_transform(housing)
 
 # extra code – shows that we can get a DataFrame out if we want
 housing_prepared_fr = pd.DataFrame(
-    housing_prepared,
-    columns=preprocessing.get_feature_names_out(),
-    index=housing.index)
+    housing_prepared, columns=preprocessing.get_feature_names_out(), index=housing.index
+)
 housing_prepared_fr.head(2)
 
 
 def column_ratio(X):
     return X[:, [0]] / X[:, [1]]
 
+
 def ratio_name(function_transformer, feature_names_in):
     return ["ratio"]  # feature names out
+
 
 def ratio_pipeline():
     return make_pipeline(
         SimpleImputer(strategy="median"),
         FunctionTransformer(column_ratio, feature_names_out=ratio_name),
-        StandardScaler())
+        StandardScaler(),
+    )
+
 
 log_pipeline = make_pipeline(
     SimpleImputer(strategy="median"),
     FunctionTransformer(np.log, feature_names_out="one-to-one"),
-    StandardScaler())
-cluster_simil = ClusterSimilarity(n_clusters=10, gamma=1., random_state=42)
-default_num_pipeline = make_pipeline(SimpleImputer(strategy="median"),
-                                     StandardScaler())
-preprocessing = ColumnTransformer([
+    StandardScaler(),
+)
+cluster_simil = ClusterSimilarity(n_clusters=10, gamma=1.0, random_state=42)
+default_num_pipeline = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
+preprocessing = ColumnTransformer(
+    [
         ("bedrooms", ratio_pipeline(), ["total_bedrooms", "total_rooms"]),
         ("rooms_per_house", ratio_pipeline(), ["total_rooms", "households"]),
         ("people_per_house", ratio_pipeline(), ["population", "households"]),
-        ("log", log_pipeline, ["total_bedrooms", "total_rooms", "population",
-                               "households", "median_income"]),
+        (
+            "log",
+            log_pipeline,
+            [
+                "total_bedrooms",
+                "total_rooms",
+                "population",
+                "households",
+                "median_income",
+            ],
+        ),
         ("geo", cluster_simil, ["latitude", "longitude"]),
         ("cat", cat_pipeline, make_column_selector(dtype_include=object)),
     ],
-    remainder=default_num_pipeline)  # one column remaining: housing_median_age
+    remainder=default_num_pipeline,
+)  # one column remaining: housing_median_age
 
 
 housing_prepared = preprocessing.fit_transform(housing)
@@ -932,6 +1023,7 @@ except ImportError:
     def root_mean_squared_error(labels, predictions):
         return mean_squared_error(labels, predictions, squared=False)
 
+
 lin_rmse = root_mean_squared_error(housing_labels, housing_predictions)
 lin_rmse
 
@@ -951,16 +1043,18 @@ tree_rmse
 
 from sklearn.model_selection import cross_val_score
 
-tree_rmses = -cross_val_score(tree_reg, housing, housing_labels,
-                              scoring="neg_root_mean_squared_error", cv=10)
+tree_rmses = -cross_val_score(
+    tree_reg, housing, housing_labels, scoring="neg_root_mean_squared_error", cv=10
+)
 
 
 pd.Series(tree_rmses).describe()
 
 
 # extra code – computes the error stats for the linear model
-lin_rmses = -cross_val_score(lin_reg, housing, housing_labels,
-                              scoring="neg_root_mean_squared_error", cv=10)
+lin_rmses = -cross_val_score(
+    lin_reg, housing, housing_labels, scoring="neg_root_mean_squared_error", cv=10
+)
 pd.Series(lin_rmses).describe()
 
 
@@ -968,10 +1062,10 @@ pd.Series(lin_rmses).describe()
 
 from sklearn.ensemble import RandomForestRegressor
 
-forest_reg = make_pipeline(preprocessing,
-                           RandomForestRegressor(random_state=42))
-forest_rmses = -cross_val_score(forest_reg, housing, housing_labels,
-                                scoring="neg_root_mean_squared_error", cv=10)
+forest_reg = make_pipeline(preprocessing, RandomForestRegressor(random_state=42))
+forest_rmses = -cross_val_score(
+    forest_reg, housing, housing_labels, scoring="neg_root_mean_squared_error", cv=10
+)
 
 
 pd.Series(forest_rmses).describe()
@@ -987,7 +1081,7 @@ forest_rmse
 
 # The training error is much lower than the validation error, which usually means that the model has overfit the training set. Another possible explanation may be that there's a mismatch between the training data and the validation data, but it's not the case here, since both came from the same dataset that we shuffled and split in two parts.
 
-# # Fine-Tune Your Model - Section-4 Starts  ############ 
+# # Fine-Tune Your Model - Section-4 Starts  ############
 
 # ## Grid Search
 
@@ -995,18 +1089,25 @@ forest_rmse
 
 from sklearn.model_selection import GridSearchCV
 
-full_pipeline = Pipeline([
-    ("preprocessing", preprocessing),
-    ("random_forest", RandomForestRegressor(random_state=42)),
-])
+full_pipeline = Pipeline(
+    [
+        ("preprocessing", preprocessing),
+        ("random_forest", RandomForestRegressor(random_state=42)),
+    ]
+)
 param_grid = [
-    {'preprocessing__geo__n_clusters': [5, 8, 10],
-     'random_forest__max_features': [4, 6, 8]},
-    {'preprocessing__geo__n_clusters': [10, 15],
-     'random_forest__max_features': [6, 8, 10]},
+    {
+        "preprocessing__geo__n_clusters": [5, 8, 10],
+        "random_forest__max_features": [4, 6, 8],
+    },
+    {
+        "preprocessing__geo__n_clusters": [10, 15],
+        "random_forest__max_features": [6, 8, 10],
+    },
 ]
-grid_search = GridSearchCV(full_pipeline, param_grid, cv=3,
-                           scoring='neg_root_mean_squared_error')
+grid_search = GridSearchCV(
+    full_pipeline, param_grid, cv=3, scoring="neg_root_mean_squared_error"
+)
 grid_search.fit(housing, housing_labels)
 
 
@@ -1030,9 +1131,16 @@ cv_res = pd.DataFrame(grid_search.cv_results_)
 cv_res.sort_values(by="mean_test_score", ascending=False, inplace=True)
 
 # extra code – these few lines of code just make the DataFrame look nicer
-cv_res = cv_res[["param_preprocessing__geo__n_clusters",
-                 "param_random_forest__max_features", "split0_test_score",
-                 "split1_test_score", "split2_test_score", "mean_test_score"]]
+cv_res = cv_res[
+    [
+        "param_preprocessing__geo__n_clusters",
+        "param_random_forest__max_features",
+        "split0_test_score",
+        "split1_test_score",
+        "split2_test_score",
+        "mean_test_score",
+    ]
+]
 score_cols = ["split0", "split1", "split2", "mean_test_rmse"]
 cv_res.columns = ["n_clusters", "max_features"] + score_cols
 cv_res[score_cols] = -cv_res[score_cols].round().astype(np.int64)
@@ -1053,12 +1161,19 @@ from sklearn.model_selection import HalvingRandomSearchCV
 from sklearn.model_selection import RandomizedSearchCV
 from scipy.stats import randint
 
-param_distribs = {'preprocessing__geo__n_clusters': randint(low=3, high=50),
-                  'random_forest__max_features': randint(low=2, high=20)}
+param_distribs = {
+    "preprocessing__geo__n_clusters": randint(low=3, high=50),
+    "random_forest__max_features": randint(low=2, high=20),
+}
 
 rnd_search = RandomizedSearchCV(
-    full_pipeline, param_distributions=param_distribs, n_iter=10, cv=3,
-    scoring='neg_root_mean_squared_error', random_state=42)
+    full_pipeline,
+    param_distributions=param_distribs,
+    n_iter=10,
+    cv=3,
+    scoring="neg_root_mean_squared_error",
+    random_state=42,
+)
 
 rnd_search.fit(housing, housing_labels)
 
@@ -1066,22 +1181,29 @@ rnd_search.fit(housing, housing_labels)
 # extra code – displays the random search results
 cv_res = pd.DataFrame(rnd_search.cv_results_)
 cv_res.sort_values(by="mean_test_score", ascending=False, inplace=True)
-cv_res = cv_res[["param_preprocessing__geo__n_clusters",
-                 "param_random_forest__max_features", "split0_test_score",
-                 "split1_test_score", "split2_test_score", "mean_test_score"]]
+cv_res = cv_res[
+    [
+        "param_preprocessing__geo__n_clusters",
+        "param_random_forest__max_features",
+        "split0_test_score",
+        "split1_test_score",
+        "split2_test_score",
+        "mean_test_score",
+    ]
+]
 cv_res.columns = ["n_clusters", "max_features"] + score_cols
 cv_res[score_cols] = -cv_res[score_cols].round().astype(np.int64)
 cv_res.head()
 
 
 # **Bonus section: how to choose the sampling distribution for a hyperparameter**
-# 
+#
 # * `scipy.stats.randint(a, b+1)`: for hyperparameters with _discrete_ values that range from a to b, and all values in that range seem equally likely.
 # * `scipy.stats.uniform(a, b)`: this is very similar, but for _continuous_ hyperparameters.
 # * `scipy.stats.geom(1 / scale)`: for discrete values, when you want to sample roughly in a given scale. E.g., with scale=1000 most samples will be in this ballpark, but ~10% of all samples will be <100 and ~10% will be >2300.
 # * `scipy.stats.expon(scale)`: this is the continuous equivalent of `geom`. Just set `scale` to the most likely value.
 # * `scipy.stats.loguniform(a, b)`: when you have almost no idea what the optimal hyperparameter value's scale is. If you set a=0.01 and b=100, then you're just as likely to sample a value between 0.01 and 0.1 as a value between 10 and 100.
-# 
+#
 
 # Here are plots of the probability mass functions (for discrete variables), and probability density functions (for continuous variables) for `randint()`, `uniform()`, `geom()` and `expon()`:
 
@@ -1153,29 +1275,25 @@ log_loguniform_distrib = uniform(np.log(0.001), np.log(1000)).pdf(log_xs4)
 plt.figure(figsize=(12, 7))
 
 plt.subplot(2, 2, 1)
-plt.fill_between(xs1, expon_distrib,
-                 label="scipy.expon(scale=1)")
+plt.fill_between(xs1, expon_distrib, label="scipy.expon(scale=1)")
 plt.ylabel("PDF")
 plt.legend()
 plt.axis([0, 7, 0, 1])
 
 plt.subplot(2, 2, 2)
-plt.fill_between(log_xs2, log_expon_distrib,
-                 label="log(X) with X ~ expon")
+plt.fill_between(log_xs2, log_expon_distrib, label="log(X) with X ~ expon")
 plt.legend()
 plt.axis([-5, 3, 0, 1])
 
 plt.subplot(2, 2, 3)
-plt.fill_between(xs3, loguniform_distrib,
-                 label="scipy.loguniform(0.001, 1000)")
+plt.fill_between(xs3, loguniform_distrib, label="scipy.loguniform(0.001, 1000)")
 plt.xlabel("Hyperparameter value")
 plt.ylabel("PDF")
 plt.legend()
 plt.axis([0.001, 1000, 0, 0.005])
 
 plt.subplot(2, 2, 4)
-plt.fill_between(log_xs4, log_loguniform_distrib,
-                 label="log(X) with X ~ loguniform")
+plt.fill_between(log_xs4, log_loguniform_distrib, label="log(X) with X ~ loguniform")
 plt.xlabel("Log of hyperparameter value")
 plt.legend()
 plt.axis([-8, 1, 0, 0.2])
@@ -1190,9 +1308,10 @@ feature_importances = final_model["random_forest"].feature_importances_
 feature_importances.round(2)
 
 
-sorted(zip(feature_importances,
-           final_model["preprocessing"].get_feature_names_out()),
-           reverse=True)
+sorted(
+    zip(feature_importances, final_model["preprocessing"].get_feature_names_out()),
+    reverse=True,
+)
 
 
 # ## Evaluate Your System on the Test Set
@@ -1210,13 +1329,16 @@ print(final_rmse)
 
 from scipy import stats
 
+
 def rmse(squared_errors):
     return np.sqrt(np.mean(squared_errors))
 
+
 confidence = 0.95
 squared_errors = (final_predictions - y_test) ** 2
-boot_result = stats.bootstrap([squared_errors], rmse,
-                              confidence_level=confidence, random_state=42)
+boot_result = stats.bootstrap(
+    [squared_errors], rmse, confidence_level=confidence, random_state=42
+)
 rmse_lower, rmse_upper = boot_result.confidence_interval
 
 
@@ -1241,10 +1363,12 @@ from sklearn.cluster import KMeans
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.metrics.pairwise import rbf_kernel
 
+
 def column_ratio(X):
     return X[:, [0]] / X[:, [1]]
 
-#class ClusterSimilarity(BaseEstimator, TransformerMixin):
+
+# class ClusterSimilarity(BaseEstimator, TransformerMixin):
 #    [...]
 
 final_model_reloaded = joblib.load("my_california_housing_model.pkl")
@@ -1267,16 +1391,21 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
 
 param_grid = [
-        {'svr__kernel': ['linear'], 'svr__C': [10., 30., 100., 300., 1000.,
-                                               3000., 10000., 30000.0]},
-        {'svr__kernel': ['rbf'], 'svr__C': [1.0, 3.0, 10., 30., 100., 300.,
-                                            1000.0],
-         'svr__gamma': [0.01, 0.03, 0.1, 0.3, 1.0, 3.0]},
-    ]
+    {
+        "svr__kernel": ["linear"],
+        "svr__C": [10.0, 30.0, 100.0, 300.0, 1000.0, 3000.0, 10000.0, 30000.0],
+    },
+    {
+        "svr__kernel": ["rbf"],
+        "svr__C": [1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0],
+        "svr__gamma": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0],
+    },
+]
 
 svr_pipeline = Pipeline([("preprocessing", preprocessing), ("svr", SVR())])
-grid_search = GridSearchCV(svr_pipeline, param_grid, cv=3,
-                           scoring='neg_root_mean_squared_error')
+grid_search = GridSearchCV(
+    svr_pipeline, param_grid, cv=3, scoring="neg_root_mean_squared_error"
+)
 grid_search.fit(housing.iloc[:5000], housing_labels.iloc[:5000])
 
 
@@ -1307,16 +1436,19 @@ from scipy.stats import expon, loguniform
 
 # Note: gamma is ignored when kernel is "linear"
 param_distribs = {
-        'svr__kernel': ['linear', 'rbf'],
-        'svr__C': loguniform(20, 200_000),
-        'svr__gamma': expon(scale=1.0),
-    }
+    "svr__kernel": ["linear", "rbf"],
+    "svr__C": loguniform(20, 200_000),
+    "svr__gamma": expon(scale=1.0),
+}
 
-rnd_search = RandomizedSearchCV(svr_pipeline,
-                                param_distributions=param_distribs,
-                                n_iter=50, cv=3,
-                                scoring='neg_root_mean_squared_error',
-                                random_state=42)
+rnd_search = RandomizedSearchCV(
+    svr_pipeline,
+    param_distributions=param_distribs,
+    n_iter=50,
+    cv=3,
+    scoring="neg_root_mean_squared_error",
+    random_state=42,
+)
 rnd_search.fit(housing.iloc[:5000], housing_labels.iloc[:5000])
 
 
@@ -1351,21 +1483,32 @@ s = expon(scale=1).rvs(100_000)  # get 100,000 samples
 
 from sklearn.feature_selection import SelectFromModel
 
-selector_pipeline = Pipeline([
-    ('preprocessing', preprocessing),
-    ('selector', SelectFromModel(RandomForestRegressor(random_state=42),
-                                 threshold=0.005)),  # min feature importance
-    ('svr', SVR(C=rnd_search.best_params_["svr__C"],
+selector_pipeline = Pipeline(
+    [
+        ("preprocessing", preprocessing),
+        (
+            "selector",
+            SelectFromModel(RandomForestRegressor(random_state=42), threshold=0.005),
+        ),  # min feature importance
+        (
+            "svr",
+            SVR(
+                C=rnd_search.best_params_["svr__C"],
                 gamma=rnd_search.best_params_["svr__gamma"],
-                kernel=rnd_search.best_params_["svr__kernel"])),
-])
+                kernel=rnd_search.best_params_["svr__kernel"],
+            ),
+        ),
+    ]
+)
 
 
-selector_rmses = -cross_val_score(selector_pipeline,
-                                  housing.iloc[:5000],
-                                  housing_labels.iloc[:5000],
-                                  scoring="neg_root_mean_squared_error",
-                                  cv=3)
+selector_rmses = -cross_val_score(
+    selector_pipeline,
+    housing.iloc[:5000],
+    housing_labels.iloc[:5000],
+    scoring="neg_root_mean_squared_error",
+    cv=3,
+)
 pd.Series(selector_rmses).describe()
 
 
@@ -1381,6 +1524,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.base import MetaEstimatorMixin, clone
 from sklearn.utils.validation import check_array
 
+
 class FeatureFromRegressor(MetaEstimatorMixin, TransformerMixin, BaseEstimator):
     def __init__(self, estimator):
         self.estimator = estimator
@@ -1393,7 +1537,7 @@ class FeatureFromRegressor(MetaEstimatorMixin, TransformerMixin, BaseEstimator):
         if hasattr(self.estimator_, "feature_names_in_"):
             self.feature_names_in_ = self.estimator_.feature_names_in_
         return self  # always return self!
-    
+
     def transform(self, X):
         check_is_fitted(self)
         predictions = self.estimator_.predict(X)
@@ -1406,8 +1550,7 @@ class FeatureFromRegressor(MetaEstimatorMixin, TransformerMixin, BaseEstimator):
         n_outputs = getattr(self.estimator_, "n_outputs_", 1)
         estimator_class_name = self.estimator_.__class__.__name__
         estimator_short_name = estimator_class_name.lower().replace("_", "")
-        return [f"{estimator_short_name}_prediction_{i}"
-                for i in range(n_outputs)]
+        return [f"{estimator_short_name}_prediction_{i}" for i in range(n_outputs)]
 
 
 # Let's ensure it complies to Scikit-Learn's API:
@@ -1434,27 +1577,38 @@ knn_transformer.get_feature_names_out()
 
 from sklearn.base import clone
 
-transformers = [(name, clone(transformer), columns)
-                for name, transformer, columns in preprocessing.transformers]
+transformers = [
+    (name, clone(transformer), columns)
+    for name, transformer, columns in preprocessing.transformers
+]
 geo_index = [name for name, _, _ in transformers].index("geo")
 transformers[geo_index] = ("geo", knn_transformer, ["latitude", "longitude"])
 
 new_geo_preprocessing = ColumnTransformer(transformers)
 
 
-new_geo_pipeline = Pipeline([
-    ('preprocessing', new_geo_preprocessing),
-    ('svr', SVR(C=rnd_search.best_params_["svr__C"],
+new_geo_pipeline = Pipeline(
+    [
+        ("preprocessing", new_geo_preprocessing),
+        (
+            "svr",
+            SVR(
+                C=rnd_search.best_params_["svr__C"],
                 gamma=rnd_search.best_params_["svr__gamma"],
-                kernel=rnd_search.best_params_["svr__kernel"])),
-])
+                kernel=rnd_search.best_params_["svr__kernel"],
+            ),
+        ),
+    ]
+)
 
 
-new_pipe_rmses = -cross_val_score(new_geo_pipeline,
-                                  housing.iloc[:5000],
-                                  housing_labels.iloc[:5000],
-                                  scoring="neg_root_mean_squared_error",
-                                  cv=3)
+new_pipe_rmses = -cross_val_score(
+    new_geo_pipeline,
+    housing.iloc[:5000],
+    housing_labels.iloc[:5000],
+    scoring="neg_root_mean_squared_error",
+    cv=3,
+)
 pd.Series(new_pipe_rmses).describe()
 
 
@@ -1471,12 +1625,14 @@ param_distribs = {
     "svr__gamma": expon(scale=1.0),
 }
 
-new_geo_rnd_search = RandomizedSearchCV(new_geo_pipeline,
-                                        param_distributions=param_distribs,
-                                        n_iter=50,
-                                        cv=3,
-                                        scoring='neg_root_mean_squared_error',
-                                        random_state=42)
+new_geo_rnd_search = RandomizedSearchCV(
+    new_geo_pipeline,
+    param_distributions=param_distribs,
+    n_iter=50,
+    cv=3,
+    scoring="neg_root_mean_squared_error",
+    random_state=42,
+)
 new_geo_rnd_search.fit(housing.iloc[:5000], housing_labels.iloc[:5000])
 
 
@@ -1494,6 +1650,7 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils.validation import check_is_fitted, validate_data
 
+
 class StandardScalerClone(TransformerMixin, BaseEstimator):
     def __init__(self, with_mean=True):  # no *args or **kwargs!
         self.with_mean = with_mean
@@ -1506,14 +1663,14 @@ class StandardScalerClone(TransformerMixin, BaseEstimator):
         self.scale_ = np.std(X, axis=0, ddof=0)
         self.scale_[self.scale_ == 0] = 1  # Avoid division by zero
         return self
-    
+
     def transform(self, X):
         check_is_fitted(self)
         X = validate_data(self, X, ensure_2d=True, reset=False)
         if self.with_mean:
             X = X - self.mean_
         return X / self.scale_
-    
+
     def inverse_transform(self, X):
         check_is_fitted(self)
         X = validate_data(self, X, ensure_2d=True, reset=False)
@@ -1524,8 +1681,9 @@ class StandardScalerClone(TransformerMixin, BaseEstimator):
 
     def get_feature_names_out(self, input_features=None):
         if input_features is None:
-            return getattr(self, "feature_names_in_",
-                           [f"x{i}" for i in range(self.n_features_in_)])
+            return getattr(
+                self, "feature_names_in_", [f"x{i}" for i in range(self.n_features_in_)]
+            )
         else:
             if len(input_features) != self.n_features_in_:
                 raise ValueError("Invalid number of features")
@@ -1539,7 +1697,7 @@ class StandardScalerClone(TransformerMixin, BaseEstimator):
 # Let's test our custom transformer:
 
 from sklearn.utils.estimator_checks import check_estimator
- 
+
 check_estimator(StandardScalerClone())
 
 
